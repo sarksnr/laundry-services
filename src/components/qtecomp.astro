@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  imagePosition?: 'left' | 'right';
+  bground?: 'bg-seco' | 'bg-tert';
+}
+
+const {
+  title,
+  description,
+  imageSrc,
+  imageAlt,
+  imagePosition = 'right',
+  bground = 'bg-seco',
+} = Astro.props;
+
+const isImageLeft = imagePosition === 'left';
+---
+
+<div id="bg" class={`w-full ${bground} ${isImageLeft ? 'image-left' : 'image-right'}`}>
+    <div class="flex flex-col justify-around p-4">
+      <h2 class="p-3 text-white text-2xl">{title}</h2>
+      <p class="p-3 text-white " set:html={description}></p>
+      <!-- Optional slot for buttons, tags, or links -->
+      <slot />
+    </div>
+
+    <div class="">
+      {typeof imageSrc === 'string' ? (
+        <img src={imageSrc} alt={imageAlt} loading="lazy" />
+      ) : (
+        <Image src={imageSrc} alt={imageAlt} />
+      )}
+    </div>
+  </div>
+
+  <style>
+    #bg{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5rem;
+    }   
+
+    #bg.image-left {
+      flex-direction: row-reverse;
+    }
+  </style>

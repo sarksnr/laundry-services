@@ -1,0 +1,41 @@
+---
+import Layout from "../pages/Layout.astro"
+import Nav from "../components/navBar.astro"
+import Foot from "../components/foot.astro"
+import Banner from "../components/banner.astro"
+import Carousel from "../components/carousel.astro"
+import Qtcomp from "../components/qtecomp.astro"
+
+import '../styles/global.css';
+---
+
+<Layout>
+	<Nav />
+	<Banner />
+	<Carousel />
+	<Qtcomp
+		title="Will I start to feel like myself again?"
+		description="Yes, absolutely. The emotional fog and heaviness are temporary. With proper rest, patience, and the right support around you,<br> your natural energy, joy, and clarity will return."
+		imageSrc="/images/qmark.png"
+		imageAlt="Postpartum support"
+		imagePosition="left"
+		bground="bg-seco"
+	/>
+	<Qtcomp
+		title="Is it possible to build a deep, warm bond with my baby as things improve?"
+		description="Yes. Feeling disconnected is simply a natural reaction to deep exhaustion and hormonal shifts, not a lack of love.<br> As you gain more rest and space to breathe, that loving connection will grow naturally."
+		imageSrc="/images/excmrk.png"
+		imageAlt="Postpartum support"
+		imagePosition="right"
+		bground="bg-tert"
+	/>
+	<Qtcomp
+		title="Can talking to someone and getting extra help make daily life feel lighter?"
+		description="Yes. Sharing the mental load with a counselor, loved ones, or fellow parents breaks isolation immediately.<br> You were never meant to carry this massive transition alone."
+		imageSrc="/images/spk.png"
+		imageAlt="Postpartum support"
+		imagePosition="left"
+		bground="bg-seco"
+	/>
+	<Foot />
+</Layout>
