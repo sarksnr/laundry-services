@@ -1,6 +1,9 @@
 ---
----
+import '../styles/global.css';
 
+import Nav from '../components/navBar.astro';
+---
+<Nav />
 <div class="w-full flex justify-center items-center h-screen">
   <div class="login-box">
     <header class="login-header">
@@ -38,7 +41,7 @@
       </div>
 
       <div class="input-submit">
-        <button type="submit" class="submit-btn" id="submit">
+        <button type="submit" class="submit-btn text-white" id="submit">
           Sign In
         </button>
       </div>
